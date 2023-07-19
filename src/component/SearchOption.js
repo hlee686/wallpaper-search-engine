@@ -24,13 +24,13 @@ const SearchOptionLabel = styled.p`
     border-radius: 16px;
 `;
 
-const SearchOption = () => {
+const SearchOption = ({ setOrder, setOrientation, setPerPage }) => {
     return (
         <SearchOptionContainer>
             <SearchOptionUl>
                 <SearchOptionLi>
                     <SearchOptionLabel>정렬</SearchOptionLabel>
-                    <form id="order">
+                    <form id="order" onChange={e => setOrder(e.target.value)}>
                         <input
                             type="radio"
                             name="order"
@@ -49,7 +49,7 @@ const SearchOption = () => {
                 </SearchOptionLi>
                 <SearchOptionLi>
                     <SearchOptionLabel>사진 방향</SearchOptionLabel>
-                    <form id="orientation">
+                    <form id="orientation" onChange={e => setOrientation(e.target.value)}>
                         <input
                             type="radio"
                             name="orientation"
@@ -75,7 +75,7 @@ const SearchOption = () => {
                 </SearchOptionLi>
                 <SearchOptionLi>
                     <SearchOptionLabel>페이지 당 갯수</SearchOptionLabel>
-                    <form id="per_page">
+                    <form id="per_page" onChange={e => setPerPage(e.target.value)}>
                         <input
                             type="radio"
                             name="per_page"

@@ -23,10 +23,10 @@ const TagLabel = styled.span`
     }
 `;
 
-const SearchTag = () => {
+const SearchTag = ({ tag, searchTag, deleteTag }) => {
     return (
-        <Tag>
-            <TagLabel>최근 검색어</TagLabel>
+        <Tag onClick={searchTag}>
+            <TagLabel>{tag}</TagLabel>
             <DeleteIcon width="12px" />
         </Tag>
     );

@@ -20,23 +20,23 @@ const ResultsWrapper = styled.div`
     width: 100%;
 `;
 
-const ResultContainer = () => {
-    const data = DummyData;
+const ResultContainer = ({ data, page, setPage, numOfPages }) => {
+
+    const [currentImageDetail, setCurrentImageDetail] = useState(null)
 
     return (
         <Container>
-            {/* ImgCard 클릭 시 해당 이미지의 정보로 ImageModal이 나타나야 합니다. */}
-            {/* <ImageModal /> */}
-            <Pagination />
+            {currentImageDetail && < ImageModal currentImageDetail={currentImageDetail} setCurrentImageDetail={setCurrentImageDetail} />}
+            {data.hits?.length > 0 && <Pagination page={page} setPage={setPage} numOfPages={numOfPages} />}
             <ResultsWrapper>
                 {data.hits?.map((imgData) => (
-                    <ImageCard key={imgData.id} imgData={imgData} />
+                    <ImageCard key={imgData.id} imgData={imgData} onClick={() => setCurrentImageDetail(imgData)} />
                 ))}
-                {/* 검색 결과가 없을 시 페이지네이션과 ImgCard 목록 대신 EmptyResult가 렌더되어야 합니다. */}
-                {/* <EmptyResult /> */}
+
             </ResultsWrapper>
         </Container>
     );
 };
 
 export default ResultContainer;
+
