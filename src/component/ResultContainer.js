@@ -27,9 +27,9 @@ const ResultContainer = ({ data, page, setPage, numOfPages }) => {
     return (
         <Container>
             {currentImageDetail && < ImageModal currentImageDetail={currentImageDetail} setCurrentImageDetail={setCurrentImageDetail} />}
-            {data.hits?.length > 0 && <Pagination page={page} setPage={setPage} numOfPages={numOfPages} />}
+            {/* {data.hits?.length > 0 && <Pagination page={page} setPage={setPage} numOfPages={numOfPages} />} */}
             <ResultsWrapper>
-                {data.hits?.map((imgData) => (
+                {data.hits?.length > 0 && data.hits?.map((imgData) => (
                     <ImageCard key={imgData.id} imgData={imgData} onClick={() => setCurrentImageDetail(imgData)} />
                 ))}
 

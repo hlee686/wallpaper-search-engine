@@ -82,6 +82,7 @@ const Search = ({ setQuery, setOrder, setOrientation, setPerPage }) => {
         const newSearchTags = [...searchTags];
         newSearchTags.splice(idx, 1);
         setSearchTags(newSearchTags);
+        alert("삭제됨")
     };
 
     useEffect(() => {
